@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.11.2",
+    "@vueuse/core": "^10.7.2",
     "daisyui": "^4.6.1",
     "otpauth": "^9.2.2"
   }

@@ -8,10 +8,10 @@
             </div>
             <div class="tabs">
                 <div class="textdef" :class="{ tabstext: isActive }" @click="toggle('local')">
-                    <span>本地</span>
+                    本地
                 </div>
-                <div class="textdef" :class="{ tabstext: ! isActive }" @click="toggle('remote')">
-                    <span>远程<NuxtLink to="/remote"></NuxtLink></span>
+                <div class="textnover">
+                    远程
                 </div>
             </div>
         </div>
@@ -19,14 +19,17 @@
 </template>
 
 <script setup lang="ts">
+const router = useRouter()
 
 const isActive = ref(true)
 
-const toggle = (key:string) => {
+const toggle = (key: string) => {
     if (key === 'local') {
         isActive.value = true
+        router.push('/')
     } else {
         isActive.value = false
+        router.push('/remote')
     }
 }
 
@@ -69,5 +72,11 @@ const toggle = (key:string) => {
 
 .textdef {
     padding: 10px;
+    color: rgb(51, 51, 51);
+}
+
+.textnover {
+    padding: 10px;
+    color: rgb(51, 51, 51, 0.5);
 }
 </style>

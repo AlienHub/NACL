@@ -13,5 +13,10 @@
     "nuxt": "^3.8.2",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.11.2",
+    "daisyui": "^4.6.1",
+    "otpauth": "^9.2.2"
   }
 }

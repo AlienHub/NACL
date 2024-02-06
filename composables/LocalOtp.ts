@@ -4,28 +4,30 @@ import { ref } from 'vue';
 const remainingTime = ref(0);
 const data = ref([]);
 const result = ref([]);
+const key = ref('');
 
+const otp = ref();
 
-export default function () {
-    getKeysFromLocalStorage()
+export default function (localstoragekey: string) {
+    key.value = localstoragekey
+    getKeysFromLocalStorage(key.value);
     setInterval(() => { 
       calculateRemainingTime();
     }, 1000);
     return {
+      remainingTime,
       data,
-      remainingTime
-    }
+    };
 }
 
 
 // 从localStorage中获取密钥
 function getKeysFromLocalStorage() {
-  const localotp = localStorage.getItem('otp');
+  // console.log(key);
+  otp.value = localStorage.getItem(key.value);
   // console.log(localotp);
-  if (localotp) {
-    // data.value = JSON.parse(localotp);
-    // data.value.key = generateToken(data.value.key);
-    data.value = JSON.parse(localotp);
+  if (otp.value && otp.value !== 'null') {
+    data.value = JSON.parse(otp.value);
     data.value.forEach((item:any) => {
       item.key = generateToken(item.key);
     });
@@ -51,3 +53,4 @@ function calculateRemainingTime() {
   // console.log(remainingTime.value);
   getKeysFromLocalStorage();
 }
+

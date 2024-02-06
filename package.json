@@ -15,9 +15,13 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@element-plus/nuxt": "^1.0.7",
     "@nuxtjs/tailwindcss": "^6.11.2",
+    "@vercel/kv": "^1.0.1",
+    "@vercel/node": "^3.0.17",
     "@vueuse/core": "^10.7.2",
     "daisyui": "^4.6.1",
+    "element-plus": "^2.5.5",
     "otpauth": "^9.2.2"
   }
 }

@@ -28,6 +28,7 @@ const { copy } = useClipboard({
 
 const copyToClipboard = () => {
     copy(props.data.key)
+    ElMessage.success('Copy Success !')
 }
 
 </script>

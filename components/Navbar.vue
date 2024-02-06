@@ -7,10 +7,10 @@
                 </a>
             </div>
             <div class="tabs">
-                <div class="textdef" :class="{ tabstext: isActive }" @click="toggle('local')">
+                <div class="textdef" :class="{ tabstext: isActive('/') }" @click="toggle('/')">
                     本地
                 </div>
-                <div class="textnover">
+                <div class="textdef" :class="{ tabstext: isActive('/remote') }" @click="toggle('/remote')">
                     远程
                 </div>
             </div>
@@ -21,16 +21,10 @@
 <script setup lang="ts">
 const router = useRouter()
 
-const isActive = ref(true)
+const isActive = (path: string) => router.currentRoute.value.path === path;
 
-const toggle = (key: string) => {
-    if (key === 'local') {
-        isActive.value = true
-        router.push('/')
-    } else {
-        isActive.value = false
-        router.push('/remote')
-    }
+const toggle = (path: string) => {
+    router.push(path);
 }
 
 </script>
@@ -66,8 +60,9 @@ const toggle = (key: string) => {
 
 .tabstext {
     padding: 10px;
-    border-bottom: 4px solid #333;
+    border-bottom: 4px solid var(--el-color-primary);
     font-weight: bold;
+    color: var(--el-color-primary) !important;;
 }
 
 .textdef {
@@ -75,8 +70,4 @@ const toggle = (key: string) => {
     color: rgb(51, 51, 51);
 }
 
-.textnover {
-    padding: 10px;
-    color: rgb(51, 51, 51, 0.5);
-}
 </style>

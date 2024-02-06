@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     // prerender index route by default
     '/': { prerender: true },
   },
-  // modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@element-plus/nuxt'],
   nitro: {
     storage: {
       redis: {

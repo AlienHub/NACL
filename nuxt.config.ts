@@ -6,15 +6,4 @@ export default defineNuxtConfig({
     '/': { prerender: true },
   },
   modules: ['@element-plus/nuxt'],
-  buildModules: [
-      '@nuxtjs/pwa',
-  ],
-  paw: {
-    meta: {
-      mobileApp: true,
-      favicon: true,
-      name: 'NACL',
-      theme_color: '#409eff'
-    }
-  }
 });

@@ -1,5 +1,4 @@
 <template>
-    <div>
         <el-form label-position="top" :model="from">
             <el-form-item label="名称">
                 <el-input v-model="from.name" />
@@ -14,7 +13,6 @@
                 <el-button @click="quit">取消</el-button>
             </el-form-item>
         </el-form>
-    </div>
 </template>
   
 <script lang="ts" setup>
@@ -24,12 +22,12 @@ const back = defineModel()
 const props = defineProps(['env'])
 
 const from = reactive({
-    name:'',
-    key:''
+    name: '',
+    key: ''
 })
 
 const add = () => {
-    const wdata = AddOtp(from.key,from.name,props.env)
+    const wdata = AddOtp(from.key, from.name, props.env)
     if (wdata.value) {
         back.value = true
     } else {

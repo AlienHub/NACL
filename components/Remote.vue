@@ -111,30 +111,16 @@ watch(addtrue, async (rudata) => {
   /* padding: 0 32px; */
 }
 
-.btn {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .mainpass {
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 400px;
-  width: 400px;
+  width: 310px;
   margin-top: 110px;
   /* align-items: center; */
   border: 1px solid #E0E0E0;
   padding: 32px;
   border-radius: 8px;
-}
-
-.label-text {
-  font-size: 14px;
-  color: #C6C6C6;
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: flex-start;
-
 }
 </style>

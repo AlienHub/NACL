@@ -6,13 +6,15 @@ export default defineNuxtConfig({
     '/': { prerender: true },
   },
   modules: ['@element-plus/nuxt'],
-  nitro: {
-    storage: {
-      redis: {
-        driver: 'redis',
-        host: 'localhost',
-        port: 6379,
-      },
-    },
-  },
+  buildModules: [
+      '@nuxtjs/pwa',
+  ],
+  paw: {
+    meta: {
+      mobileApp: true,
+      favicon: true,
+      name: 'NACL',
+      theme_color: '#409eff'
+    }
+  }
 });

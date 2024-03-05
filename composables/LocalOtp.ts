@@ -7,34 +7,42 @@ const result = ref([]);
 const key = ref('');
 
 const otp = ref();
+const rotp = ref();
+const aotp = ref([]);
 
-export default function (localstoragekey: string) {
-    key.value = localstoragekey
-    getKeysFromLocalStorage(key.value);
+export default function (remotedata: boolean) {
+    // key.value = localstoragekey
+    getKeysFromLocalStorage(remotedata);
     setInterval(() => { 
-      calculateRemainingTime();
+      calculateRemainingTime(remotedata);
     }, 1000);
     return {
       remainingTime,
-      data,
+      aotp,
     };
 }
 
-
 // 从localStorage中获取密钥
-function getKeysFromLocalStorage() {
+function getKeysFromLocalStorage(remotedata:boolean) {
   // console.log(key);
-  otp.value = localStorage.getItem(key.value);
-  // console.log(localotp);
-  if (otp.value && otp.value !== 'null') {
-    data.value = JSON.parse(otp.value);
-    // console.log(data.value)
-    data.value.forEach((item:any) => {
+  otp.value = localStorage.getItem('otp');
+  rotp.value = localStorage.getItem('remote-otp')
+  // console.log('totp',rotp.value)
+  if(remotedata && rotp.value) {
+    aotp.value = JSON.parse(otp.value)
+    aotp.value = aotp.value.concat(JSON.parse(rotp.value))
+  }else {
+    aotp.value = JSON.parse(otp.value)
+  }
+  // console.log(aotp.value);
+  if (aotp.value) {
+    // console.log(aotp.value)
+    aotp.value.forEach((item:any) => {
       item.key = generateToken(item.key);
     });
   }
-  // console.log(data.value);
-  return data.value;
+  // console.log(aotp.value);
+  return aotp.value;
 }
 
 const generateToken = (key:any) => {
@@ -47,11 +55,11 @@ const generateToken = (key:any) => {
 };
 
 // 计算剩余时间
-function calculateRemainingTime() {
+function calculateRemainingTime(remotedata: boolean) {
   const currentTimestamp = Math.floor(Date.now() / 1000);
   const timestampRemainder = currentTimestamp % 30;
   remainingTime.value = 30 - timestampRemainder;
   // console.log(remainingTime.value);
-  getKeysFromLocalStorage();
+  getKeysFromLocalStorage(remotedata);
 }
 

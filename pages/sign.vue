@@ -36,7 +36,9 @@ const login = () => {
     passtrue.value = ReadRmotedata().passtrue.value
     console.log('login',passtrue.value)
     if (passtrue.value) {
+        localStorage.setItem('sgin','Hello')
         router.push('/')
+
     }
 
 }

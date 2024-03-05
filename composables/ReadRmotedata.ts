@@ -1,4 +1,4 @@
-const token = ref('')
+const token = ref()
 const passtrue = ref(false)
 
 const dataraw = async () => {
@@ -9,7 +9,6 @@ const dataraw = async () => {
         }
       })
     if (apidata.data.value?.status === 200) {
-    //   console.log('???')
       passtrue.value = true
       localStorage.setItem('remote-otp', JSON.stringify(apidata.data.value?.body.data))
     } else {
@@ -19,7 +18,7 @@ const dataraw = async () => {
 }
 
 export default function () {
-    const token = ref(localStorage.getItem('token'));
+    token.value = localStorage.getItem('token')
     console.log('api',token.value)
     dataraw()
     return {

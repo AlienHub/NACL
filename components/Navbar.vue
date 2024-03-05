@@ -7,19 +7,26 @@
             <div class="icon" @click="toggle('/add')"><img src="/add.svg" alt="SVG Icon"></div>
             <div class="icon-scanner" @click="toggle('/add')"><img src="/Vector.svg" alt="SVG Icon"></div>
             <div class="textdef" @click="toggle('/sign')">
-                Sign in
+                {{ sgin }}
             </div>
         </div>
     </nav>
 </template>
 
 <script setup lang="ts">
-import { Plus } from '@element-plus/icons-vue'
 const router = useRouter()
-
+const sgin = ref('Sgin in')
 const toggle = (path: string) => {
     router.push(path);
 }
+onMounted(() => {
+    const localStorageValue = localStorage.getItem('sgin');
+
+    if (localStorageValue && localStorageValue === 'Hello') {
+    sgin.value = 'Hello';
+    }
+});
+
 
 </script>
 

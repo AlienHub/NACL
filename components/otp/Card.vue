@@ -3,8 +3,8 @@
     <div class="card-conent">
       <div class="card-name">
         <div class="card-label">{{ data.value }}</div>
-        <div class="card-tag"> 
-          <span>远程</span>
+        <div class="card-tag" v-if="data.tag !== undefined"> 
+          <span>{{ data.tag }}</span>
         </div>
         </div>
       <div class="card-num">{{ data.key }}</div>
@@ -28,6 +28,7 @@ const props = defineProps<{
   data: {
     key: string,
     value: string
+    tag:string
   },
   remainingTime: number
 }>()
@@ -50,6 +51,8 @@ const customColorMethod = computed(() => {
   }
   return '#FF9900';
 });
+
+
 
 </script>
 

@@ -13,13 +13,16 @@
 import { ref } from 'vue';
 // const router = useRouter()
 
-const token = localStorage.getItem('remote-otp');
-console.log(token)
-
-const lotp = LocalOtp('otp')
-const data = ref(lotp.data)
+const token = localStorage.getItem('token');
+const remotedata = ref(false);
+if (token) {
+    remotedata.value = true
+}
+console.log(remotedata.value)
+const lotp = LocalOtp(remotedata.value)
+const data = ref(lotp.aotp)
+console.log(data)
 const remainingTime = ref(lotp.remainingTime)
-
 </script>
 
 <style>

@@ -28,6 +28,7 @@ function getKeysFromLocalStorage() {
   // console.log(localotp);
   if (otp.value && otp.value !== 'null') {
     data.value = JSON.parse(otp.value);
+    // console.log(data.value)
     data.value.forEach((item:any) => {
       item.key = generateToken(item.key);
     });

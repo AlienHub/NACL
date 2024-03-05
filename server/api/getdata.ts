@@ -60,7 +60,8 @@ const generateToken = (key:any) => {
 export default defineEventHandler(async (event) => {  
 
   const correctToken = process.env.PASSWORD
-  // console.log(event.headers,'ssss')
+  console.log(correctToken)
+  console.log(event.headers,'ssss')
   const token = event.headers.get('authorization')
   // console.log(token)
   // 如果 Authorization 头不存在，返回凭据错误的响应

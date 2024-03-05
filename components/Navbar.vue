@@ -1,27 +1,21 @@
 <template>
     <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <a href="/">
-                    <img src="/nacl.svg" alt="logo" />
-                </a>
-            </div>
-            <div class="tabs">
-                <div class="textdef" :class="{ tabstext: isActive('/') }" @click="toggle('/')">
-                    本地
-                </div>
-                <div class="textdef" :class="{ tabstext: isActive('/remote') }" @click="toggle('/remote')">
-                    远程
-                </div>
+        <a class="navbar-logo" href="/">
+            <img src="/logo.svg" alt="logo" />
+        </a>
+        <div class="action">
+            <div class="icon" @click="toggle('/add')"><img src="/add.svg" alt="SVG Icon"></div>
+            <div class="icon-scanner" @click="toggle('/add')"><img src="/Vector.svg" alt="SVG Icon"></div>
+            <div class="textdef" @click="toggle('/sign')">
+                Sign in
             </div>
         </div>
     </nav>
 </template>
 
 <script setup lang="ts">
+import { Plus } from '@element-plus/icons-vue'
 const router = useRouter()
-
-const isActive = (path: string) => router.currentRoute.value.path === path;
 
 const toggle = (path: string) => {
     router.push(path);
@@ -31,12 +25,11 @@ const toggle = (path: string) => {
 
 <style scoped>
 .navbar {
-    width: 100%;
-    height: 60px;
+    width: calc(100% - 48px);
+    height: 48px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    z-index: 1000;
+    margin: 0 24px;
 }
 
 .navbar-logo {
@@ -44,30 +37,62 @@ const toggle = (path: string) => {
     align-items: center;
 }
 
-.navbar-container {
-    width: 80%;
-    max-width: 1200px;
+.action {
     display: flex;
-    justify-content: space-between;
+    gap: 24px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: auto;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.tabs {
+.icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
     display: flex;
-    gap: 20px;
-    font-size: 18px;
-    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.icon:hover {
+    background-color: #F0F0F0;
+}
+
+.icon-scanner {
+    display: none;
+}
+
+@media only screen and (max-width: 600px)  {
+    .icon-scanner{
+        width: 32px;
+        height: 32px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+    }
+    .icon-scanner:active {
+        background-color: #F0F0F0;
+    }
+    .icon:active {
+        background-color: #F0F0F0;
+    }
 }
 
 .tabstext {
     padding: 10px;
     border-bottom: 4px solid var(--el-color-primary);
     font-weight: bold;
-    color: var(--el-color-primary) !important;;
+    color: var(--el-color-primary) !important;
+    ;
 }
 
 .textdef {
     padding: 10px;
     color: rgb(51, 51, 51);
 }
-
 </style>

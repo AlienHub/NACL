@@ -18,7 +18,7 @@ const router = useRouter()
 const sgin = ref('Sgin in')
 const login = () => {
     if (sgin.value !== 'Hello') {
-        router.push('/sgin'); 
+        router.push('/sign'); 
     }
 }
 const toggle = (path: string) => {

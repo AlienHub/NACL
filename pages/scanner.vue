@@ -24,7 +24,7 @@ import { QrcodeStream } from 'vue-qrcode-reader'
 
 const router = useRouter()
 
-const facingMode = ref('user')
+const facingMode = ref('environment')
 const result = ref('')
 const qr = ref(true)
 const otpdata = ref()

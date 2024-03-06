@@ -24,12 +24,11 @@ import { QrcodeStream } from 'vue-qrcode-reader'
 
 const router = useRouter()
 
-const facingMode = ref('environment')
+const facingMode = ref('user')
 const result = ref('')
 const qr = ref(true)
-const title = ref('添加')
-const content = ref('')
 const otpdata = ref()
+const islogin = ref('local')
 
 function parseMfaUri(uri: string) {
     // 使用正则表达式匹配发行者和标签，使 issuer 部分变得可选
@@ -45,6 +44,8 @@ function parseMfaUri(uri: string) {
     const secret = match[2];
     const issuer = match[3];
 
+    console.log(secret)
+
     // 对标签部分进行解码
     const decodedLabel = decodeURIComponent(encodedLabel);
 
@@ -57,24 +58,10 @@ function parseMfaUri(uri: string) {
     return result;
 }
 
-// 测试 URI
-// const uri1 = 'otpauth://totp/Aliyun:%E8%91%AB%E7%A6%84%E5%95%8A?secret=VQ5OMCWYPN4J3I3RR6RCXUCY37LCHBDHXI35I5E5WF3M3Q6JU2LOHCM4NLVWADLZ&issuer=Aliyun';
-// const uri2 = 'otpauth://totp/alien_zhou?secret=MWZVDRNQKKIR65BZR2KI6PAI7UP2HDXG';
-
-// const parsedResult1 = parseMfaUri(uri1);
-// const parsedResult2 = parseMfaUri(uri2);
-
-// console.log(parsedResult1);
-// console.log(parsedResult2);
-
 
 function onDetect(detectedCodes) {
-    // console.log(detectedCodes)
-    result.value = JSON.stringify(detectedCodes.map((code) => code.rawValue))
-    // console.log(result.value)
-    ElMessage.success(result.value)
-    otpdata.value = parseMfaUri(result.value)
-    ElMessage.info(result.value)
+    result.value = detectedCodes.map((code) => code.rawValue)
+    otpdata.value = parseMfaUri(result.value[0])
     if (qr) {
         add()
     } else {
@@ -86,7 +73,10 @@ function onDetect(detectedCodes) {
 
 
 const add = () => {
-    const wdata = AddOtp(otpdata.value.key, otpdata.value.value, 'local')
+    if (localStorage.getItem('token')){
+        islogin.value = 'remote'
+    }
+    const wdata = AddOtp(otpdata.value.key, otpdata.value.value, islogin.value)
     if (wdata.value) {
         router.push('/')
     } else {

@@ -18,11 +18,12 @@ const remotedata = ref(false);
 if (token) {
     remotedata.value = true
 }
-console.log(remotedata.value)
+// console.log(remotedata.value)
 const lotp = await LocalOtp(remotedata.value)
 const data = ref(lotp.aotp)
 // console.log(data)
 const remainingTime = ref(lotp.remainingTime)
+
 </script>
 
 <style>

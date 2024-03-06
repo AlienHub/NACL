@@ -32,15 +32,15 @@ export default async function (remotedata: boolean) {
 
 // 从localStorage中获取密钥
 function getKeysFromLocalStorage() {
-  // console.log(key);
   otp.value = localStorage.getItem('otp');
-  if(apidata.value) {
-    aotp.value = JSON.parse(otp.value)
-    aotp.value = aotp.value.concat(JSON.parse(rotp.value))
-  }else {
-    aotp.value = JSON.parse(otp.value)
+  if (apidata.value ) {
+    // 确保 parsedOtp 是一个数组
+    if (otp.value) {
+      aotp.value = JSON.parse(otp.value).concat(JSON.parse(rotp.value));
+    }else {
+      aotp.value = JSON.parse(rotp.value)
+    }
   }
-  // console.log(aotp.value);
   if (aotp.value) {
     // console.log(aotp.value)
     aotp.value.forEach((item:any) => {
@@ -52,7 +52,6 @@ function getKeysFromLocalStorage() {
 }
 
 const generateToken = (key:any) => {
-  // console.log(key);
   const totp = new OTPAuth.TOTP({
     secret: key,
   });

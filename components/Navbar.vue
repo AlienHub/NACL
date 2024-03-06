@@ -6,7 +6,7 @@
         <div class="action">
             <div class="icon" @click="toggle('/add')"><img src="/add.svg" alt="SVG Icon"></div>
             <div class="icon-scanner" @click="toggle('/scanner')"><img src="/Vector.svg" alt="SVG Icon"></div>
-            <div class="textdef" @click="toggle('/sign')">
+            <div class="textdef" @click="login()">
                 {{ sgin }}
             </div>
         </div>
@@ -16,14 +16,22 @@
 <script setup lang="ts">
 const router = useRouter()
 const sgin = ref('Sgin in')
+const login = () => {
+    if (sgin.value !== 'Hello') {
+        router.push('/sgin'); 
+    }
+}
 const toggle = (path: string) => {
-    router.push(path);
+    router.push(path);        
+
 }
 onMounted(() => {
-    const localStorageValue = localStorage.getItem('sgin');
+    const localStorageValue = localStorage.getItem('token');
 
-    if (localStorageValue && localStorageValue === 'Hello') {
-    sgin.value = 'Hello';
+    if (localStorageValue) {
+        sgin.value = 'Hello';
+    }else {
+        sgin.value = 'Sgin in'
     }
 });
 

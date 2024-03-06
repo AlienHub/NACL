@@ -44,6 +44,13 @@ const login = async () => {
 
 }
 
+onMounted(() => {
+    const localStorageValue = localStorage.getItem('token');
+    if (localStorageValue) {
+        router.push('/')
+    }
+});
+
 </script>
 
 <style scoped>

@@ -25,14 +25,17 @@
 <script lang="ts" setup>
 const router = useRouter()
 
+const islogin = ref('local')
 const from = reactive({
     name: '',
     key: ''
 })
 
 const add = () => {
-    const wdata = AddOtp(from.key, from.name, 'local')
-    console.log('s',wdata)
+    if (localStorage.getItem('token')){
+        islogin.value = 'remote'
+    }
+    const wdata = AddOtp(from.key, from.name, islogin.value)
     if (wdata.value) {
         router.push('/')
     } else {

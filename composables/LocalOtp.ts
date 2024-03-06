@@ -2,19 +2,27 @@ import * as OTPAuth from "otpauth";
 import { ref } from 'vue';
 
 const remainingTime = ref(0);
-const data = ref([]);
-const result = ref([]);
-const key = ref('');
 
 const otp = ref();
 const rotp = ref();
 const aotp = ref([]);
+const rdata = ref();
+const apidata = ref(false);
 
-export default function (remotedata: boolean) {
+export default async function (remotedata: boolean) {
     // key.value = localstoragekey
-    getKeysFromLocalStorage(remotedata);
+    if (remotedata) {
+      rdata.value = await ReadRmotedata()
+      if (rdata.value.data.status === 200) {
+        localStorage.setItem('remote-otp', JSON.stringify(rdata.value.data.body.data))
+        rotp.value = localStorage.getItem('remote-otp')
+        apidata.value = true
+    } 
+    }
+    getKeysFromLocalStorage();
+    // console.log('login',rdata.value.data)
     setInterval(() => { 
-      calculateRemainingTime(remotedata);
+      calculateRemainingTime();
     }, 1000);
     return {
       remainingTime,
@@ -23,12 +31,10 @@ export default function (remotedata: boolean) {
 }
 
 // 从localStorage中获取密钥
-function getKeysFromLocalStorage(remotedata:boolean) {
+function getKeysFromLocalStorage() {
   // console.log(key);
   otp.value = localStorage.getItem('otp');
-  rotp.value = localStorage.getItem('remote-otp')
-  // console.log('totp',rotp.value)
-  if(remotedata && rotp.value) {
+  if(apidata.value) {
     aotp.value = JSON.parse(otp.value)
     aotp.value = aotp.value.concat(JSON.parse(rotp.value))
   }else {
@@ -55,11 +61,11 @@ const generateToken = (key:any) => {
 };
 
 // 计算剩余时间
-function calculateRemainingTime(remotedata: boolean) {
+function calculateRemainingTime() {
   const currentTimestamp = Math.floor(Date.now() / 1000);
   const timestampRemainder = currentTimestamp % 30;
   remainingTime.value = 30 - timestampRemainder;
   // console.log(remainingTime.value);
-  getKeysFromLocalStorage(remotedata);
+  getKeysFromLocalStorage();
 }
 

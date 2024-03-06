@@ -25,20 +25,21 @@
 const router = useRouter()
 // const token = ref(localStorage.getItem('token'));
 const InputKey = ref('');
-const passtrue = ref(false)
+const rdata = ref();
 
 const quit = () => {
     router.push('/')
 }
 
-const login = () => {
+const login = async () => {
     localStorage.setItem('token', InputKey.value)
-    passtrue.value = ReadRmotedata().passtrue.value
-    console.log('login',passtrue.value)
-    if (passtrue.value) {
-        localStorage.setItem('sgin','Hello')
+    rdata.value = await ReadRmotedata()
+    // console.log('login',rdata.value.data)
+    if (rdata.value.data.status === 200) {
+        localStorage.setItem('remote-otp', JSON.stringify(rdata.value.data.body.data))
         router.push('/')
-
+    } else {
+        ElMessage.error('Oops, password is error!')
     }
 
 }

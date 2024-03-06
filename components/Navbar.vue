@@ -5,7 +5,7 @@
         </a>
         <div class="action">
             <div class="icon" @click="toggle('/add')"><img src="/add.svg" alt="SVG Icon"></div>
-            <div class="icon-scanner" @click="toggle('/add')"><img src="/Vector.svg" alt="SVG Icon"></div>
+            <div class="icon-scanner" @click="toggle('/scanner')"><img src="/Vector.svg" alt="SVG Icon"></div>
             <div class="textdef" @click="toggle('/sign')">
                 {{ sgin }}
             </div>

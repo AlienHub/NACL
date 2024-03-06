@@ -6,5 +6,6 @@ export default defineNuxtConfig({
     '/': { prerender: true },
   },
   modules: ['@element-plus/nuxt'],
-  css: ['~/assets/main.css']
+  css: ['~/assets/main.css'],
+  ssr: false,
 });

@@ -63,7 +63,7 @@ const generateToken = (key:any) => {
 export default defineEventHandler(async (event) => {  
 
   const correctToken = process.env.PASSWORD
-  // console.log(correctToken)
+  console.log(correctToken)
   // console.log(event.headers,'ssss')
   const token = event.headers.get('authorization')
   // console.log(token)

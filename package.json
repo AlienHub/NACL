@@ -27,6 +27,7 @@
     "daisyui": "^4.6.1",
     "element-plus": "^2.5.5",
     "otpauth": "^9.2.2",
-    "progressbar.js": "^1.1.1"
+    "progressbar.js": "^1.1.1",
+    "vue-qrcode-reader": "^5.5.3"
   }
 }

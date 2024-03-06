@@ -87,7 +87,7 @@ watch(addtrue, async (rudata) => {
                     确认
                 </el-button>
             </el-form-item>
-        </el-form>
+      </el-form>
     </div>
   </ClientOnly>
 </template>

@@ -1,22 +1,18 @@
 <template>
     <ClientOnly>
-        <div class="mian" v-if="addtrue">
-            <div class="header">
-                <el-button @click="addKey">添加 OTP</el-button>
-            </div>
+        <div class="mian">
             <div class="container">
                 <div v-for="item in data">
                     <OtpCard :data="item" :remainingTime="remainingTime" />
                 </div>
             </div>
         </div>
-        <div class="mainpass" v-else>
-            <Add v-model="addtrue" env="local" />
-        </div>
     </ClientOnly>
 </template>
 
 <script setup lang="ts">
+const router = useRouter()
+
 import { ref } from 'vue';
 
 // 添加数据
@@ -30,16 +26,13 @@ const addKey = () => {
     addtrue.value = false
 };
 
-
 // console.log(data.value)
 </script>
 
 <style scoped>
-
 .container {
     display: flex;
-    justify-content: flex-start;
-    padding: 0 32px;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 

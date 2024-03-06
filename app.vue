@@ -1,14 +1,17 @@
 <template>
-  <NuxtPage />
+  <ClientOnly>
+    <NuxtPage />
+  </ClientOnly>
 </template>
 
 
 <script setup lang="ts">
+
 const router = useRouter()
 
 const nav = [
   { label: 'Home', to: '/' },
-  { label: 'remote', to: '/remote' }
+  { label: 'sign', to: '/sign' }
 ]
 
 </script>

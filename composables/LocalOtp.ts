@@ -2,42 +2,56 @@ import * as OTPAuth from "otpauth";
 import { ref } from 'vue';
 
 const remainingTime = ref(0);
-const data = ref([]);
-const result = ref([]);
-const key = ref('');
 
 const otp = ref();
+const rotp = ref();
+const aotp = ref([]);
+const rdata = ref();
+const apidata = ref(false);
 
-export default function (localstoragekey: string) {
-    key.value = localstoragekey
-    getKeysFromLocalStorage(key.value);
+export default async function (remotedata: boolean) {
+    // key.value = localstoragekey
+    if (remotedata) {
+      rdata.value = await ReadRmotedata()
+      if (rdata.value.data.status === 200) {
+        localStorage.setItem('remote-otp', JSON.stringify(rdata.value.data.body.data))
+        rotp.value = localStorage.getItem('remote-otp')
+        apidata.value = true
+    } 
+    }
+    getKeysFromLocalStorage();
+    // console.log('login',rdata.value.data)
     setInterval(() => { 
       calculateRemainingTime();
     }, 1000);
     return {
       remainingTime,
-      data,
+      aotp,
     };
 }
 
-
 // 从localStorage中获取密钥
 function getKeysFromLocalStorage() {
-  // console.log(key);
-  otp.value = localStorage.getItem(key.value);
-  // console.log(localotp);
-  if (otp.value && otp.value !== 'null') {
-    data.value = JSON.parse(otp.value);
-    data.value.forEach((item:any) => {
+  otp.value = localStorage.getItem('otp');
+  if (apidata.value ) {
+    // 确保 parsedOtp 是一个数组
+    if (otp.value) {
+      aotp.value = JSON.parse(otp.value).concat(JSON.parse(rotp.value));
+    }else {
+      aotp.value = JSON.parse(rotp.value)
+    }
+  }
+  if (aotp.value) {
+    // console.log(aotp.value)
+    aotp.value.forEach((item:any) => {
       item.key = generateToken(item.key);
     });
   }
-  // console.log(data.value);
-  return data.value;
+  // console.log(aotp.value);
+  return aotp.value;
 }
 
 const generateToken = (key:any) => {
-  // console.log(key);
   const totp = new OTPAuth.TOTP({
     secret: key,
   });

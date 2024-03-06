@@ -5,6 +5,7 @@ import * as OTPAuth from "otpauth";
 type resultotp = {
   key: string;
   value: string;
+  tag: string
 };
 
 function processArray(inputArray: string[]): resultotp[] {
@@ -16,10 +17,11 @@ function processArray(inputArray: string[]): resultotp[] {
   for (let i = 0; i < inputArray.length; i += 2) {
     const value = inputArray[i];
     const key = i + 1 < inputArray.length ? inputArray[i + 1] : '';
-
+    const tag = '远程';
     const obj: resultotp = {
       value,
       key,
+      tag
     };
 
     result.push(obj);
@@ -32,6 +34,7 @@ function processArray(inputArray: string[]): resultotp[] {
 const getdata = async () => {
   const url = process.env.KV_REST_API_URL
   const token = process.env.KV_REST_API_TOKEN
+  console.log(url,token)
   const response = await fetch(`${process.env.KV_REST_API_URL}`, {
     headers: {
       Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
@@ -60,6 +63,7 @@ const generateToken = (key:any) => {
 export default defineEventHandler(async (event) => {  
 
   const correctToken = process.env.PASSWORD
+  console.log(correctToken)
   // console.log(event.headers,'ssss')
   const token = event.headers.get('authorization')
   // console.log(token)

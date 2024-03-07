@@ -1,7 +1,6 @@
 <template>
-  <ClientOnly>
-    <NuxtPage />
-  </ClientOnly>
+  <VitePwaManifest />
+  <NuxtPage />
 </template>
 
 

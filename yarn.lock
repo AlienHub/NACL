@@ -1663,6 +1663,30 @@
     unimport "^3.7.1"
     untyped "^1.4.2"
 
+"@nuxt/kit@^3.9.0":
+  version "3.10.3"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@nuxt/kit/-/kit-3.10.3.tgz#911bc431d9b7541a7269e9e63333f70c8ecb5fd6"
+  integrity sha512-PUjYB9Mvx0qD9H1QZBwwtY4fLlCLET+Mm9BVqUOtXCaGoXd6u6BE4e/dGFPk2UEKkIcDGrUMSbqkHYvsEuK9NQ==
+  dependencies:
+    "@nuxt/schema" "3.10.3"
+    c12 "^1.9.0"
+    consola "^3.2.3"
+    defu "^6.1.4"
+    globby "^14.0.1"
+    hash-sum "^2.0.0"
+    ignore "^5.3.1"
+    jiti "^1.21.0"
+    knitwork "^1.0.0"
+    mlly "^1.6.0"
+    pathe "^1.1.2"
+    pkg-types "^1.0.3"
+    scule "^1.3.0"
+    semver "^7.6.0"
+    ufo "^1.4.0"
+    unctx "^2.3.1"
+    unimport "^3.7.1"
+    untyped "^1.4.2"
+
 "@nuxt/schema@3.10.0", "@nuxt/schema@^3.9.1":
   version "3.10.0"
   resolved "https://mirrors.huaweicloud.com/repository/npm/@nuxt/schema/-/schema-3.10.0.tgz#b64f802388a777a3e432e2914b5d2ea4b22adab7"
@@ -1677,6 +1701,23 @@
     scule "^1.2.0"
     std-env "^3.7.0"
     ufo "^1.3.2"
+    unimport "^3.7.1"
+    untyped "^1.4.2"
+
+"@nuxt/schema@3.10.3":
+  version "3.10.3"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@nuxt/schema/-/schema-3.10.3.tgz#b9bdcced298b64f280f12936e518fe4f32c90328"
+  integrity sha512-a4cYbeskEVBPazgAhvUGkL/j7ho/iPWMK3vCEm6dRMjSqHVEITRosrj0aMfLbRrDpTrMjlRs0ZitxiaUfE/p5Q==
+  dependencies:
+    "@nuxt/ui-templates" "^1.3.1"
+    consola "^3.2.3"
+    defu "^6.1.4"
+    hookable "^5.5.3"
+    pathe "^1.1.2"
+    pkg-types "^1.0.3"
+    scule "^1.3.0"
+    std-env "^3.7.0"
+    ufo "^1.4.0"
     unimport "^3.7.1"
     untyped "^1.4.2"
 
@@ -2139,6 +2180,11 @@
   resolved "https://mirrors.huaweicloud.com/repository/npm/@sindresorhus/merge-streams/-/merge-streams-1.0.0.tgz#9cd84cc15bc865a5ca35fcaae198eb899f7b5c90"
   integrity sha512-rUV5WyJrJLoloD4NDN1V1+LDMDWOa4OTsT4yYJwQNpTU6FWxkxHpL7eu4w+DmiH8x/EAM1otkPE1+LaspIbplw==
 
+"@sindresorhus/merge-streams@^2.1.0":
+  version "2.3.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@sindresorhus/merge-streams/-/merge-streams-2.3.0.tgz#719df7fb41766bc143369eaa0dd56d8dc87c9958"
+  integrity sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==
+
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
   resolved "https://mirrors.huaweicloud.com/repository/npm/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-2.2.3.tgz#ee34985952ca21558ab0d952f00298ad2190c053"
@@ -2412,6 +2458,16 @@
     ajv "8.6.3"
     json-schema-to-ts "1.6.4"
     ts-morph "12.0.0"
+
+"@vite-pwa/nuxt@^0.5.0":
+  version "0.5.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@vite-pwa/nuxt/-/nuxt-0.5.0.tgz#ed18ca02b9780c59abf7f23599ea46c2672e58c0"
+  integrity sha512-5Si0Qpj9FGYmgrX52HJtY1OZKNDXJVmx17yULk0Karb7+6GKXhRcWP3DnFTEG7zkctXuzBli5sXjQaEEbEgy6w==
+  dependencies:
+    "@nuxt/kit" "^3.9.0"
+    pathe "^1.1.1"
+    ufo "^1.3.2"
+    vite-plugin-pwa ">=0.18.1 <1"
 
 "@vitejs/plugin-vue-jsx@^3.1.0":
   version "3.1.0"
@@ -3026,6 +3082,24 @@ c12@^1.5.1, c12@^1.6.1:
     pkg-types "^1.0.3"
     rc9 "^2.1.1"
 
+c12@^1.9.0:
+  version "1.9.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/c12/-/c12-1.9.0.tgz#a98b3d16b5010667983df70794a332d6b9865ec3"
+  integrity sha512-7KTCZXdIbOA2hLRQ+1KzJ15Qp9Wn58one74dkihMVp2H6EzKTa3OYBy0BSfS1CCcmxYyqeX8L02m40zjQ+dstg==
+  dependencies:
+    chokidar "^3.5.3"
+    confbox "^0.1.3"
+    defu "^6.1.4"
+    dotenv "^16.3.2"
+    giget "^1.2.1"
+    jiti "^1.21.0"
+    mlly "^1.5.0"
+    ohash "^1.1.3"
+    pathe "^1.1.2"
+    perfect-debounce "^1.0.0"
+    pkg-types "^1.0.3"
+    rc9 "^2.1.1"
+
 cac@^6.7.14:
   version "6.7.14"
   resolved "https://mirrors.huaweicloud.com/repository/npm/cac/-/cac-6.7.14.tgz#804e1e6f506ee363cb0e3ccbb09cad5dd9870959"
@@ -3298,6 +3372,11 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://mirrors.huaweicloud.com/repository/npm/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
+
+confbox@^0.1.3:
+  version "0.1.3"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/confbox/-/confbox-0.1.3.tgz#121eaeb7ec916215afe351449895290a2a270434"
+  integrity sha512-eH3ZxAihl1PhKfpr4VfEN6/vUd87fmgb6JkldHgg/YR6aEBhW63qUDgzP2Y6WM0UumdsYp5H3kibalXAdHfbgg==
 
 consola@^3.2.3:
   version "3.2.3"
@@ -3716,6 +3795,11 @@ dotenv@^16.3.1:
   version "16.4.1"
   resolved "https://mirrors.huaweicloud.com/repository/npm/dotenv/-/dotenv-16.4.1.tgz#1d9931f1d3e5d2959350d1250efab299561f7f11"
   integrity sha512-CjA3y+Dr3FyFDOAMnxZEGtnW9KBR2M0JvvUtXNW+dYJL5ROWxP9DUHCwgFqpMk0OXCc0ljhaNTr2w/kutYIcHQ==
+
+dotenv@^16.3.2:
+  version "16.4.5"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/dotenv/-/dotenv-16.4.5.tgz#cdd3b3b604cb327e286b4762e13502f717cb099f"
+  integrity sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==
 
 dotenv@^8.2.0:
   version "8.6.0"
@@ -4526,6 +4610,18 @@ globby@^14.0.0:
     slash "^5.1.0"
     unicorn-magic "^0.1.0"
 
+globby@^14.0.1:
+  version "14.0.1"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/globby/-/globby-14.0.1.tgz#a1b44841aa7f4c6d8af2bc39951109d77301959b"
+  integrity sha512-jOMLD2Z7MAhyG8aJpNOpmziMOP4rPLcc95oQPKXBazW82z+CEgPFBQvEpRUa1KeIMUJo4Wsm+q6uzO/Q/4BksQ==
+  dependencies:
+    "@sindresorhus/merge-streams" "^2.1.0"
+    fast-glob "^3.3.2"
+    ignore "^5.2.4"
+    path-type "^5.0.0"
+    slash "^5.1.0"
+    unicorn-magic "^0.1.0"
+
 gopd@^1.0.1:
   version "1.0.1"
   resolved "https://mirrors.huaweicloud.com/repository/npm/gopd/-/gopd-1.0.1.tgz#29ff76de69dac7489b7c0918a5788e56477c332c"
@@ -4761,7 +4857,7 @@ ignore-walk@^6.0.4:
   dependencies:
     minimatch "^9.0.0"
 
-ignore@^5.2.4, ignore@^5.3.0:
+ignore@^5.2.4, ignore@^5.3.0, ignore@^5.3.1:
   version "5.3.1"
   resolved "https://mirrors.huaweicloud.com/repository/npm/ignore/-/ignore-5.3.1.tgz#5073e554cd42c5b33b394375f538b8593e34d4ef"
   integrity sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==
@@ -5749,6 +5845,16 @@ mlly@^1.2.0, mlly@^1.3.0, mlly@^1.4.2, mlly@^1.5.0:
   version "1.5.0"
   resolved "https://mirrors.huaweicloud.com/repository/npm/mlly/-/mlly-1.5.0.tgz#8428a4617d54cc083d3009030ac79739a0e5447a"
   integrity sha512-NPVQvAY1xr1QoVeG0cy8yUYC7FQcOx6evl/RjT1wL5FvzPnzOysoqB/jmx/DhssT2dYa8nxECLAaFI/+gVLhDQ==
+  dependencies:
+    acorn "^8.11.3"
+    pathe "^1.1.2"
+    pkg-types "^1.0.3"
+    ufo "^1.3.2"
+
+mlly@^1.6.0:
+  version "1.6.1"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/mlly/-/mlly-1.6.1.tgz#0983067dc3366d6314fc5e12712884e6978d028f"
+  integrity sha512-vLgaHvaeunuOXHSmEbZ9izxPx3USsk8KCQ8iC+aTlp5sKRSoZvwhHh5L9VbKSaVC6sJDqbyohIS76E2VmHIPAA==
   dependencies:
     acorn "^8.11.3"
     pathe "^1.1.2"
@@ -7077,6 +7183,11 @@ scule@^1.0.0, scule@^1.1.0, scule@^1.1.1, scule@^1.2.0:
   resolved "https://mirrors.huaweicloud.com/repository/npm/scule/-/scule-1.2.0.tgz#b46d444d6a8c92e73eb80d2d8d00b94ab065cc3e"
   integrity sha512-CRCmi5zHQnSoeCik9565PONMg0kfkvYmcSqrbOJY4txFfy1wvVULV4FDaiXhUblUgahdqz3F2NwHZ8i4eBTwUw==
 
+scule@^1.3.0:
+  version "1.3.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/scule/-/scule-1.3.0.tgz#6efbd22fd0bb801bdcc585c89266a7d2daa8fbd3"
+  integrity sha512-6FtHJEvt+pVMIB9IBY+IcCJ6Z5f1iQnytgyfKMhDKgmzYG+TeH/wx1y3l27rshSbLiSanrR9ffZDrEsmjlQF2g==
+
 sdp@^3.2.0:
   version "3.2.0"
   resolved "https://mirrors.huaweicloud.com/repository/npm/sdp/-/sdp-3.2.0.tgz#8961420552b36663b4d13ddba6f478d1461896a5"
@@ -7091,6 +7202,13 @@ semver@^7.0.0, semver@^7.1.1, semver@^7.3.4, semver@^7.3.5, semver@^7.5.0, semve
   version "7.5.4"
   resolved "https://mirrors.huaweicloud.com/repository/npm/semver/-/semver-7.5.4.tgz#483986ec4ed38e1c6c48c34894a9182dbff68a6e"
   integrity sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==
+  dependencies:
+    lru-cache "^6.0.0"
+
+semver@^7.6.0:
+  version "7.6.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/semver/-/semver-7.6.0.tgz#1a46a4db4bffcccd97b743b5005c8325f23d4e2d"
+  integrity sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==
   dependencies:
     lru-cache "^6.0.0"
 
@@ -7877,6 +7995,11 @@ ufo@^1.1.2, ufo@^1.2.0, ufo@^1.3.0, ufo@^1.3.1, ufo@^1.3.2:
   resolved "https://mirrors.huaweicloud.com/repository/npm/ufo/-/ufo-1.3.2.tgz#c7d719d0628a1c80c006d2240e0d169f6e3c0496"
   integrity sha512-o+ORpgGwaYQXgqGDwd+hkS4PuZ3QnmqMMxRuajK/a38L6fTpcE5GPIfrf+L/KemFzfUpeUQc1rRS1iDBozvnFA==
 
+ufo@^1.4.0:
+  version "1.4.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/ufo/-/ufo-1.4.0.tgz#39845b31be81b4f319ab1d99fd20c56cac528d32"
+  integrity sha512-Hhy+BhRBleFjpJ2vchUNN40qgkh0366FWJGqVLYBHev0vpHTrXSA0ryT+74UiW6KWsldNurQMKGqCm1M2zBciQ==
+
 ultrahtml@^1.5.2:
   version "1.5.2"
   resolved "https://mirrors.huaweicloud.com/repository/npm/ultrahtml/-/ultrahtml-1.5.2.tgz#77be18c531adc4cda198b8767eda27df9427cc7f"
@@ -8194,6 +8317,17 @@ vite-plugin-inspect@^0.8.1:
     perfect-debounce "^1.0.0"
     picocolors "^1.0.0"
     sirv "^2.0.4"
+
+"vite-plugin-pwa@>=0.18.1 <1":
+  version "0.19.2"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/vite-plugin-pwa/-/vite-plugin-pwa-0.19.2.tgz#60d91c667b3ed22196a072a00dc0fe4f91603c03"
+  integrity sha512-LSQJFPxCAQYbRuSyc9EbRLRqLpaBA9onIZuQFomfUYjWSgHuQLonahetDlPSC9zsxmkSEhQH8dXZN8yL978h3w==
+  dependencies:
+    debug "^4.3.4"
+    fast-glob "^3.3.2"
+    pretty-bytes "^6.1.1"
+    workbox-build "^7.0.0"
+    workbox-window "^7.0.0"
 
 vite-plugin-pwa@^0.17.5:
   version "0.17.5"

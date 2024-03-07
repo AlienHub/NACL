@@ -11,6 +11,7 @@
   "devDependencies": {
     "@nuxt/devtools": "^1.0.3",
     "@nuxtjs/pwa": "^3.3.5",
+    "@vite-pwa/nuxt": "^0.5.0",
     "nuxt": "^3.8.2",
     "vite-plugin-pwa": "^0.17.5",
     "vue": "^3.3.8",

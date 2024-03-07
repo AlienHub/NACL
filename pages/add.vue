@@ -3,21 +3,21 @@
         <Navbar />
         <div class="add-from">
             <ClientOnly>
-            <el-form label-position="top" :model="from">
-                <el-form-item label="名称">
-                    <el-input v-model="from.name" />
-                </el-form-item>
-                <el-form-item label="密钥">
-                    <el-input v-model="from.key" />
-                </el-form-item>
-                <el-form-item>
-                    <el-button class='butn' color="#FF9900" type="primary" @click="add">
+                <el-form label-position="top" :model="from">
+                    <el-form-item label="名称">
+                        <el-input v-model="from.name" />
+                    </el-form-item>
+                    <el-form-item label="密钥">
+                        <el-input v-model="from.key" />
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button class='butn' type="primary" @click="add">
                         添加
                     </el-button>
                     <el-button @click="quit">取消</el-button>
-                </el-form-item>
-            </el-form>
-        </ClientOnly>
+                    </el-form-item>
+                </el-form>
+            </ClientOnly>
         </div>
     </div>
 </template>
@@ -32,7 +32,7 @@ const from = reactive({
 })
 
 const add = () => {
-    if (localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
         islogin.value = 'remote'
     }
     const wdata = AddOtp(from.key, from.name, islogin.value)
@@ -48,8 +48,16 @@ const quit = () => {
 
 </script>
 
-<style scoped>
-
+<style>
+:root {
+    --el-color-primary: #FF7701;
+    --el-color-primary-light-3: #FFA04E;
+    --el-color-primary-light-5: #FFBB80;
+    --el-color-primary-light-7: #FFD7B3;
+    --el-color-primary-light-8: #FFE4CC;
+    --el-color-primary-light-9: #FFF2E6;
+    --el-color-primary-dark-2: #F67504;
+}
 .add-from {
     max-width: 300px;
     margin: 110px auto 0 auto;
@@ -59,5 +67,4 @@ const quit = () => {
     color: #fff;
     font-weight: 600;
 }
-
 </style>

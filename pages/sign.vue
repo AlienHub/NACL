@@ -53,7 +53,16 @@ onMounted(() => {
 
 </script>
 
-<style scoped>
+<style>
+:root {
+    --el-color-primary: #FF7701;
+    --el-color-primary-light-3: #FFA04E;
+    --el-color-primary-light-5: #FFBB80;
+    --el-color-primary-light-7: #FFD7B3;
+    --el-color-primary-light-8: #FFE4CC;
+    --el-color-primary-light-9: #FFF2E6;
+    --el-color-primary-dark-2: #F67504;
+}
 .sign-from {
     max-width: 300px;
     margin: 110px auto 0 auto;

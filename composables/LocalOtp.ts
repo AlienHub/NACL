@@ -33,13 +33,15 @@ export default async function (remotedata: boolean) {
 // 从localStorage中获取密钥
 function getKeysFromLocalStorage() {
   otp.value = localStorage.getItem('otp');
-  if (apidata.value ) {
+  if (apidata.value) {
     // 确保 parsedOtp 是一个数组
     if (otp.value) {
       aotp.value = JSON.parse(otp.value).concat(JSON.parse(rotp.value));
     }else {
       aotp.value = JSON.parse(rotp.value)
     }
+  }else {
+    aotp.value = JSON.parse(otp.value)
   }
   if (aotp.value) {
     // console.log(aotp.value)

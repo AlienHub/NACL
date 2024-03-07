@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 const router = useRouter()
-const sgin = ref('Sgin in')
+const sgin = ref('Sign in')
 const login = () => {
     if (sgin.value !== 'Hello') {
         router.push('/sign'); 
@@ -31,14 +31,14 @@ onMounted(() => {
     if (localStorageValue) {
         sgin.value = 'Hello';
     }else {
-        sgin.value = 'Sgin in'
+        sgin.value = 'Sign in'
     }
 });
 
 
 </script>
 
-<style scoped>
+<style>
 .navbar {
     width: calc(100% - 48px);
     height: 48px;

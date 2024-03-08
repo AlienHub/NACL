@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar">
         <a class="navbar-logo" href="/">
-            <img src="/logo.svg" alt="logo" />
+            <img src="/nacl.svg" alt="logo" />
         </a>
         <div class="action">
             <div class="icon" @click="toggle('/add')"><img src="/add.svg" alt="SVG Icon"></div>

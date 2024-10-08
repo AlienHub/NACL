@@ -39,7 +39,7 @@ const getdata = async () => {
     headers: {
       Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
     },
-    body: `["HGETALL", "otp"]`,
+    body: `["HGETALL", ${process.env.KV_REST_API_DB_NAME}]`,
     method: 'POST',
   })
   if (!response.ok) {

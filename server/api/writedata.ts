@@ -5,7 +5,7 @@ const writedata = async (key: string, value: string) => {
       headers: {
         Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
       },
-      body: `["HSET", "otp", "${key}", "${value}"]`,
+      body: `["HSET", ${process.env.KV_REST_API_DB_NAME}, "${key}", "${value}"]`,
       method: 'POST',
     })
     if (!response.ok) {
